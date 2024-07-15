@@ -13,4 +13,4 @@ services:
     stop_grace_period: 1m
     command: [chromium-browser, "--headless", "--disable-gpu", "--no-sandbox", "--remote-debugging-address=0.0.0.0", "--remote-debugging-port=9223"]
     ports:
-      - "9222:9223"
+      - "9223:9222"
