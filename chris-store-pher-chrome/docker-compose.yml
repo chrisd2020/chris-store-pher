@@ -3,16 +3,14 @@ services:
   app_proxy:
     environment:
       # The format here is: <app-id>_<docker-service-name>_1
-      APP_HOST: chris-store-pher-chrome
+      APP_HOST: chris-store-pher-chrome_1
       APP_PORT: 9223
-  nginx:
-    image: nginx:alpine
-    command: [nginx-debug, "-g", "daemon off;"]
-    ports:
-      - 80:80
 
-  chrome:
+  web:
     image: zenika/alpine-chrome:latest
+
+    restart: on-failure
+    stop_grace_period: 1m
     command: [chromium-browser, "--headless", "--disable-gpu", "--no-sandbox", "--remote-debugging-address=0.0.0.0", "--remote-debugging-port=9223"]
     ports:
-      - "9223:9223"
+      - "9222:9223"
