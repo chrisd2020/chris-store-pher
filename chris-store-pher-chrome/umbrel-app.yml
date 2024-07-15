@@ -5,7 +5,7 @@ tagline: Chrome in a docker container
 icon: https://upload.wikimedia.org/wikipedia/commons/e/e1/Google_Chrome_icon_%28February_2022%29.svg
 category: Web
 version: "1.0.0"
-port: 9223
+port: 13241
 description: >-
   Alpine Chrome from https://github.com/Zenika/alpine-chrome
 
