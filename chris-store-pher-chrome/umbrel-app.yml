@@ -5,7 +5,7 @@ tagline: Chrome in a docker container
 icon: https://upload.wikimedia.org/wikipedia/commons/e/e1/Google_Chrome_icon_%28February_2022%29.svg
 category: Web
 version: "1.0.0"
-port: 6901
+port: 8080  # Updated to match the new port for the nginx service
 description: >-
   Chrome with a full UI in a Kasm Workspaces container from https://hub.docker.com/r/kasmweb/chrome
 
