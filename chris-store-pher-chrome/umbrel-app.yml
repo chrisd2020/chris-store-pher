@@ -11,6 +11,9 @@ maintainer:
   name: Your Name
   email: your.email@example.com
   website: https://yourwebsite.com
+donation:
+  bitcoin: "your-bitcoin-address"
+  lightning: "your-lightning-address"
 services:
   chrome:
     image: kasmweb/chrome:latest
@@ -24,6 +27,8 @@ services:
       - "6901:6901"
       - "5900:5900"
     restart: unless-stopped
+volumes:
+  data:
 permissions:
   network:
     - port: 6901
