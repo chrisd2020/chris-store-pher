@@ -1,4 +1,4 @@
-version: "2"
+version: "3.8"
 
 services:
   app_proxy:
@@ -13,7 +13,7 @@ services:
       - "8080:80"  # Changed to 8080 to avoid conflict with port 80
 
   chrome:
-    image: kasmweb/chrome:latest
+    image: kasmweb/chrome:v1.10.0
     environment:
       - VNC_PW=password  # Set a VNC password
       - RESOLUTION=1280x1024  # Set the desired screen resolution
