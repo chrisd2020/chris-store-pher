@@ -10,7 +10,7 @@ services:
     image: nginx:alpine
     command: [nginx-debug, "-g", "daemon off;"]
     ports:
-      - "8080:80"  # Changed to 8080 to avoid conflict with port 80
+      - "8081:80"  # Changed to 8081 to avoid conflict with port 80
 
   chrome:
     image: kasmweb/chrome:1.13.0
