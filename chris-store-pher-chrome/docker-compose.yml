@@ -1,31 +1,23 @@
 version: '3.8'
 
 services:
-  alpine-chrome:
-    image: zenika/alpine-chrome:with-puppeteer
-    container_name: alpine-chrome
+  chrome:
+    image: kasmweb/chrome:latest
+    container_name: kasm-chrome
     environment:
-      # Set timezone if needed
-      - TZ=UTC
-      # Set other environment variables if needed
-    volumes:
-      - ./data:/data  # Persist data if necessary
+      - VNC_PW=password  # Set a VNC password
+      - RESOLUTION=1280x1024  # Set the desired screen resolution
+      - KASM_PORT=6901
     ports:
-      - "9222:9222"  # Expose the debugging port
-    entrypoint: ["/usr/bin/chromium-browser", "--headless", "--disable-gpu", "--no-sandbox", "--remote-debugging-address=0.0.0.0", "--remote-debugging-port=9222"]
+      - "6901:6901"  # Web interface port for noVNC
+      - "5900:5900"  # VNC port
+    volumes:
+      - data:/data
     restart: unless-stopped
+
+volumes:
+  data:
 
 networks:
   default:
     driver: bridge
-
-# Additional configuration for Umbrel App Store
-x-umbrel:
-  title: Alpine Chrome
-  version: 1.0.0
-  description: Headless Chrome in a lightweight Alpine Linux container.
-  repository: https://github.com/Zenika/alpine-chrome
-  maintainer: Your Name <your.email@example.com>
-  app_icon: https://example.com/path/to/icon.png
-  app_website: https://github.com/Zenika/alpine-chrome
-  app_support: https://github.com/Zenika/alpine-chrome/issues
