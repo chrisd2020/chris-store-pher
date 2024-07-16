@@ -27,10 +27,8 @@ services:
       - "6901:6901"
       - "5900:5900"
     restart: unless-stopped
-
 volumes:
   data:
-
 permissions:
   network:
     - port: 6901
