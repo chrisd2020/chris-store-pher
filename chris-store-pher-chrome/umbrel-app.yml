@@ -1,3 +1,47 @@
+version: 2.1
+id: kasm-chrome
+name: Kasm Chrome
+description: Chrome with a full UI in a Kasm Workspaces container.
+repository: https://hub.docker.com/r/kasmweb/chrome
+homepage: https://kasmweb.com/
+icon: https://example.com/path/to/icon.png
+support: https://kasmweb.com/contact
+maintainer:
+  name: Your Name
+  email: your.email@example.com
+  website: https://yourwebsite.com
+donation:
+  bitcoin: "your-bitcoin-address"
+  lightning: "your-lightning-address"
+services:
+  chrome:
+    image: kasmweb/chrome:latest
+    environment:
+      - VNC_PW=password
+      - RESOLUTION=1280x1024
+      - KASM_PORT=6901
+    volumes:
+      - data:/data
+    ports:
+      - "6901:6901"
+      - "5900:5900"
+    restart: unless-stopped
+
+volumes:
+  data:
+
+permissions:
+  network:
+    - port: 6901
+      type: public
+      protocol: tcp
+    - port: 5900
+      type: public
+      protocol: tcp
+
+
+
+
 manifestVersion: 1
 id: chris-store-pher-chrome
 name: Chrome
@@ -7,17 +51,13 @@ category: Web
 version: "1.0.0"
 port: 9222
 description: >-
-  Alpine Chrome from https://github.com/Zenika/alpine-chrome
-
-
-  You can also add newlines!
-
-developer: Zenika
-website: https://github.com/Zenika
+  Kasm Chrome from https://hub.docker.com/r/kasmweb/chrome
+developer: Kasmweb
+website: https://kasmweb.com/
 submitter: Chris
 submission: N/A
-repo: https://github.com/chrisd2020/chris-store-pher/
-support: https://github.com/chrisd2020/chris-store-pher/issues
+repo: https://hub.docker.com/r/kasmweb/chrome
+support: https://kasmweb.com/contact
 gallery:
   - https://i.imgur.com/yyVG0Jb.jpeg
   - https://i.imgur.com/yyVG0Jb.jpeg
@@ -28,3 +68,28 @@ dependencies: []
 path: ""
 defaultUsername: ""
 defaultPassword: ""
+services:
+  chrome:
+    image: kasmweb/chrome:latest
+    environment:
+      - VNC_PW=password
+      - RESOLUTION=1280x1024
+      - KASM_PORT=6901
+    volumes:
+      - data:/data
+    ports:
+      - "6901:6901"
+      - "5900:5900"
+    restart: unless-stopped
+
+volumes:
+  data:
+
+permissions:
+  network:
+    - port: 6901
+      type: public
+      protocol: tcp
+    - port: 5900
+      type: public
+      protocol: tcp
