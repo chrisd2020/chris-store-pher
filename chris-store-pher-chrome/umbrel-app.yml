@@ -7,13 +7,6 @@ repository: https://hub.docker.com/r/kasmweb/chrome
 homepage: https://kasmweb.com/
 icon: https://upload.wikimedia.org/wikipedia/commons/e/e1/Google_Chrome_icon_%28February_2022%29.svg
 support: https://kasmweb.com/contact
-maintainer:
-  name: Your Name
-  email: your.email@example.com
-  website: https://yourwebsite.com
-donation:
-  bitcoin: "your-bitcoin-address"
-  lightning: "your-lightning-address"
 services:
   chrome:
     image: kasmweb/chrome:latest
