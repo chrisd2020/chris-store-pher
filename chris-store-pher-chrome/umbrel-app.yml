@@ -1,5 +1,6 @@
+manifestVersion: 1
 version: 2.1
-id: kasm-chrome
+id: chris-store-pher-chrome
 name: Kasm Chrome
 description: Chrome with a full UI in a Kasm Workspaces container.
 repository: https://hub.docker.com/r/kasmweb/chrome
@@ -13,61 +14,6 @@ maintainer:
 donation:
   bitcoin: "your-bitcoin-address"
   lightning: "your-lightning-address"
-services:
-  chrome:
-    image: kasmweb/chrome:latest
-    environment:
-      - VNC_PW=password
-      - RESOLUTION=1280x1024
-      - KASM_PORT=6901
-    volumes:
-      - data:/data
-    ports:
-      - "6901:6901"
-      - "5900:5900"
-    restart: unless-stopped
-
-volumes:
-  data:
-
-permissions:
-  network:
-    - port: 6901
-      type: public
-      protocol: tcp
-    - port: 5900
-      type: public
-      protocol: tcp
-
-
-
-
-manifestVersion: 1
-id: chris-store-pher-chrome
-name: Chrome
-tagline: Chrome in a docker container
-icon: https://upload.wikimedia.org/wikipedia/commons/e/e1/Google_Chrome_icon_%28February_2022%29.svg
-category: Web
-version: "1.0.0"
-port: 9222
-description: >-
-  Kasm Chrome from https://hub.docker.com/r/kasmweb/chrome
-developer: Kasmweb
-website: https://kasmweb.com/
-submitter: Chris
-submission: N/A
-repo: https://hub.docker.com/r/kasmweb/chrome
-support: https://kasmweb.com/contact
-gallery:
-  - https://i.imgur.com/yyVG0Jb.jpeg
-  - https://i.imgur.com/yyVG0Jb.jpeg
-  - https://i.imgur.com/yyVG0Jb.jpeg
-releaseNotes: >-
-  Initial release
-dependencies: []
-path: ""
-defaultUsername: ""
-defaultPassword: ""
 services:
   chrome:
     image: kasmweb/chrome:latest
