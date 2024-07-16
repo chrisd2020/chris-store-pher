@@ -1,16 +1,31 @@
-version: "2"
+version: '3.8'
+
 services:
-  app_proxy:
+  alpine-chrome:
+    image: zenika/alpine-chrome:with-puppeteer
+    container_name: alpine-chrome
     environment:
-      # The format here is: <app-id>_<docker-service-name>_1
-      APP_HOST: chris-store-pher-chrome_1
-      APP_PORT: 13241
-
-  web:
-    image: zenika/alpine-chrome:latest
-
-    restart: on-failure
-    stop_grace_period: 1m
-    command: [chromium-browser, "--headless", "--disable-gpu", "--no-sandbox", "--remote-debugging-address=0.0.0.0", "--remote-debugging-port=9222"]
+      # Set timezone if needed
+      - TZ=UTC
+      # Set other environment variables if needed
+    volumes:
+      - ./data:/data  # Persist data if necessary
     ports:
-      - "13241:9222"
+      - "9222:9222"  # Expose the debugging port
+    entrypoint: ["/usr/bin/chromium-browser", "--headless", "--disable-gpu", "--no-sandbox", "--remote-debugging-address=0.0.0.0", "--remote-debugging-port=9222"]
+    restart: unless-stopped
+
+networks:
+  default:
+    driver: bridge
+
+# Additional configuration for Umbrel App Store
+x-umbrel:
+  title: Alpine Chrome
+  version: 1.0.0
+  description: Headless Chrome in a lightweight Alpine Linux container.
+  repository: https://github.com/Zenika/alpine-chrome
+  maintainer: Your Name <your.email@example.com>
+  app_icon: https://example.com/path/to/icon.png
+  app_website: https://github.com/Zenika/alpine-chrome
+  app_support: https://github.com/Zenika/alpine-chrome/issues
