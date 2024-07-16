@@ -1,19 +1,19 @@
 manifestVersion: 1
 id: chris-store-pher-chrome
-name: Chrome
+name: Kasm Chrome
 tagline: Chrome in a docker container
 icon: https://upload.wikimedia.org/wikipedia/commons/e/e1/Google_Chrome_icon_%28February_2022%29.svg
 category: Web
 version: "1.0.0"
-port: 9222
+port: 6901
 description: >-
-  Alpine Chrome from https://github.com/Zenika/alpine-chrome
+  Chrome with a full UI in a Kasm Workspaces container from https://hub.docker.com/r/kasmweb/chrome
 
 
   You can also add newlines!
 
-developer: Zenika
-website: https://github.com/Zenika
+developer: Kasm Technologies
+website: https://kasmweb.com/
 submitter: Chris
 submission: N/A
 repo: https://github.com/chrisd2020/chris-store-pher/
